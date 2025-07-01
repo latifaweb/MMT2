@@ -40,13 +40,15 @@
   
   <!-- Avatar -->
   <div class="w-24 h-24 rounded-full mb-3 relative bg-zinc-600 overflow-hidden ring-2 ring-transparent group-hover:ring-lime-300 group-hover:scale-110 transition-all duration-300">
-    <img
-      [src]="member.blobFotoUrl"
-      alt="{{ member.nama }}"
-      class="w-full h-full object-cover absolute inset-0"
-      (error)="onImageError($event)"
-      *ngIf="member.blobFotoUrl"
-    />
+    <div
+  class="w-full h-full object-cover absolute inset-0 select-none pointer-events-none touch-none"
+  [ngStyle]="{ 'background-image': 'url(' + member.blobFotoUrl + ')', 'background-size': 'cover', 'background-position': 'center' }"
+  (contextmenu)="$event.preventDefault()"
+  *ngIf="member.blobFotoUrl"
+  role="img"
+  [attr.aria-label]="member.nama"
+></div>
+
     <svg
       *ngIf="!member.blobFotoUrl"
       class="w-10 h-10 text-zinc-400 absolute inset-0 m-auto"
@@ -78,13 +80,15 @@
      class="group w-60 aspect-[2/1] bg-zinc-600 rounded-lg p-6 shadow-lg transform hover:scale-105 transition-transform duration-200 cursor-pointer hover:shadow-xl flex flex-col items-center justify-center">
   
   <div class="w-20 h-20 rounded-full mb-4 relative bg-zinc-600 overflow-hidden ring-2 ring-transparent group-hover:ring-lime-300 group-hover:scale-110 transition-all duration-300">
-    <img
-      [src]="member.blobFotoUrl"
-      alt="{{ member.nama }}"
-      class="w-full h-full object-cover absolute inset-0"
-      (error)="onImageError($event)"
-      *ngIf="member.blobFotoUrl"
-    />
+    <div
+  class="w-full h-full object-cover absolute inset-0 select-none pointer-events-none touch-none"
+  [ngStyle]="{ 'background-image': 'url(' + member.blobFotoUrl + ')', 'background-size': 'cover', 'background-position': 'center' }"
+  (contextmenu)="$event.preventDefault()"
+  *ngIf="member.blobFotoUrl"
+  role="img"
+  [attr.aria-label]="member.nama"
+></div>
+
     <svg
       *ngIf="!member.blobFotoUrl"
       class="w-10 h-10 text-zinc-400 absolute inset-0 m-auto"
@@ -127,13 +131,15 @@
   <div class="w-12 h-12 rounded-full relative bg-zinc-600 overflow-hidden flex-shrink-0 ring-2 ring-transparent group-hover:ring-lime-300 group-hover:scale-110 transition-all duration-300 " (contextmenu)="$event.preventDefault()"
   (mousedown)="$event.preventDefault()"
   (touchstart)="$event.preventDefault()">
-    <img
-      [src]="member.blobFotoUrl"
-      alt="{{ member.nama }}"
-      class="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
-      (error)="onImageError($event)"
-      *ngIf="member.blobFotoUrl"
-    />
+  <div
+  class="w-full h-full object-cover absolute inset-0 select-none pointer-events-none touch-none"
+  [ngStyle]="{ 'background-image': 'url(' + member.blobFotoUrl + ')', 'background-size': 'cover', 'background-position': 'center' }"
+  (contextmenu)="$event.preventDefault()"
+  *ngIf="member.blobFotoUrl"
+  role="img"
+  [attr.aria-label]="member.nama"
+></div>
+
     <svg
       *ngIf="!member.blobFotoUrl"
       class="w-6 h-6 text-zinc-400 absolute inset-0 m-auto"
@@ -204,13 +210,20 @@
         
         <!-- Profile Picture -->
         <div class="w-full aspect-square mx-auto mb-2 relative bg-zinc-600 overflow-hidden shadow-xl">
-          <img
-            [src]="selectedMember?.foto"
-            alt="{{ selectedMember?.nama }}"
-            class="w-full h-full object-contain absolute inset-0"
-            (error)="onImageError($event)"
-            *ngIf="selectedMember?.foto"
-          />
+          <div
+  class="w-full h-full object-contain absolute inset-0 select-none pointer-events-none touch-none"
+  [ngStyle]="{
+    'background-image': 'url(' + selectedMember?.foto + ')',
+    'background-size': 'contain',
+    'background-repeat': 'no-repeat',
+    'background-position': 'center'
+  }"
+  (contextmenu)="$event.preventDefault()"
+  *ngIf="selectedMember?.foto"
+  role="img"
+  [attr.aria-label]="selectedMember?.nama"
+></div>
+
         
           <svg
             *ngIf="!selectedMember?.foto"
