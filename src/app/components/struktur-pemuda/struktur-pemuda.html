@@ -2,11 +2,11 @@
   <!-- Header -->
   <div class="text-center mb-8">
     <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">Struktur Organisasi</h1>
-    <p class="text-gray-300">Susunan pengurus dan anggota organisasi</p>
+    <p class="text-zinc-300">Susunan pengurus dan anggota organisasi</p>
   </div>
 
   <!-- Close Button -->
-  <button [routerLink]="'/'" class="fixed top-4 right-4 z-10 bg-gray-600 hover:bg-gray-700 text-white rounded-full p-2 transition-colors">
+  <button [routerLink]="'/'" class="fixed top-4 right-4 z-10 bg-zinc-600 hover:bg-zinc-700 text-white rounded-full p-2 transition-colors">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
     </svg>
@@ -36,10 +36,10 @@
       <div class="flex flex-wrap justify-center gap-6">
         <div *ngFor="let member of groupedMembers['Umum']" 
      (click)="openModal(member)"
-     class="group w-60 aspect-square bg-gray-700 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-200 cursor-pointer hover:shadow-xl flex flex-col items-center justify-center p-6">
+     class="group w-60 aspect-square bg-zinc-700 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-200 cursor-pointer hover:shadow-xl flex flex-col items-center justify-center p-6">
   
   <!-- Avatar -->
-  <div class="w-24 h-24 rounded-full mb-3 relative bg-gray-600 overflow-hidden ring-2 ring-transparent group-hover:ring-lime-300 group-hover:scale-110 transition-all duration-300">
+  <div class="w-24 h-24 rounded-full mb-3 relative bg-zinc-600 overflow-hidden ring-2 ring-transparent group-hover:ring-lime-300 group-hover:scale-110 transition-all duration-300">
     <img
       [src]="member.foto"
       alt="{{ member.nama }}"
@@ -49,7 +49,7 @@
     />
     <svg
       *ngIf="!member.foto"
-      class="w-10 h-10 text-gray-400 absolute inset-0 m-auto"
+      class="w-10 h-10 text-zinc-400 absolute inset-0 m-auto"
       fill="currentColor"
       viewBox="0 0 20 20"
     >
@@ -63,7 +63,7 @@
 
   <!-- Nama dan Jabatan -->
   <h3 class="text-xl font-bold text-white uppercase text-center">{{ member.nama }}</h3>
-  <p class="text-gray-300 text-center">{{ member.jabatan }}</p>
+  <p class="text-zinc-300 text-center">{{ member.jabatan }}</p>
 </div>
 
       </div>
@@ -75,9 +75,9 @@
       <div class="flex flex-wrap justify-center gap-6">
         <div *ngFor="let member of getPengurusInti()" 
      (click)="openModal(member)"
-     class="group w-60 aspect-[2/1] bg-gray-700 rounded-lg p-6 shadow-lg transform hover:scale-105 transition-transform duration-200 cursor-pointer hover:shadow-xl flex flex-col items-center justify-center">
+     class="group w-60 aspect-[2/1] bg-zinc-600 rounded-lg p-6 shadow-lg transform hover:scale-105 transition-transform duration-200 cursor-pointer hover:shadow-xl flex flex-col items-center justify-center">
   
-  <div class="w-20 h-20 rounded-full mb-4 relative bg-gray-600 overflow-hidden ring-2 ring-transparent group-hover:ring-lime-300 group-hover:scale-110 transition-all duration-300">
+  <div class="w-20 h-20 rounded-full mb-4 relative bg-zinc-600 overflow-hidden ring-2 ring-transparent group-hover:ring-lime-300 group-hover:scale-110 transition-all duration-300">
     <img
       [src]="member.foto"
       alt="{{ member.nama }}"
@@ -87,7 +87,7 @@
     />
     <svg
       *ngIf="!member.foto"
-      class="w-10 h-10 text-gray-400 absolute inset-0 m-auto"
+      class="w-10 h-10 text-zinc-400 absolute inset-0 m-auto"
       fill="currentColor"
       viewBox="0 0 20 20"
     >
@@ -100,7 +100,7 @@
   </div>
 
   <h3 class="text-lg font-bold text-white uppercase text-center">{{ member.nama }}</h3>
-  <p class="text-gray-400 text-sm text-center">{{ member.divisi }}</p>
+  <p class="text-zinc-400 text-sm text-center">{{ member.divisi }}</p>
 </div>
 
       </div>
@@ -109,10 +109,10 @@
     <!-- Divisi Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       <div *ngFor="let divisi of getDivisiLainnya()" 
-           class="bg-gray-700 rounded-lg shadow-lg overflow-hidden">
+           class="bg-zinc-600 rounded-lg shadow-lg overflow-hidden">
         
         <!-- Division Header -->
-        <div class="bg-gray-600 px-4 py-3">
+        <div class="bg-zinc-600 px-4 py-3">
           <h3 class="text-white font-bold text-center">Div. {{ divisi }}</h3>
         </div>
 
@@ -121,10 +121,10 @@
           <div *ngFor="let member of groupedMembers[divisi]" 
      (click)="openModal(member)"
      class="group flex items-center space-x-3 p-3 rounded-lg transform hover:scale-105 transition-transform duration-200 cursor-pointer hover:shadow-md"
-     [ngClass]="member.jabatan === 'Ketua' ? 'bg-gray-600 hover:bg-gray-500' : 'bg-gray-800 hover:bg-gray-750'">
+     [ngClass]="member.jabatan === 'Ketua' ? 'bg-zinc-800 hover:bg-zinc-950' : 'bg-zinc-700 hover:bg-zinc-900'">
 
   <!-- Avatar -->
-  <div class="w-12 h-12 rounded-full relative bg-gray-600 overflow-hidden flex-shrink-0 ring-2 ring-transparent group-hover:ring-lime-300 group-hover:scale-110 transition-all duration-300">
+  <div class="w-12 h-12 rounded-full relative bg-zinc-600 overflow-hidden flex-shrink-0 ring-2 ring-transparent group-hover:ring-lime-300 group-hover:scale-110 transition-all duration-300">
     <img
       [src]="member.foto"
       alt="{{ member.nama }}"
@@ -134,7 +134,7 @@
     />
     <svg
       *ngIf="!member.foto"
-      class="w-6 h-6 text-gray-400 absolute inset-0 m-auto"
+      class="w-6 h-6 text-zinc-400 absolute inset-0 m-auto"
       fill="currentColor"
       viewBox="0 0 20 20"
     >
@@ -149,7 +149,7 @@
   <!-- Member Info -->
   <div class="flex-1 min-w-0">
     <p class="text-white font-medium uppercase text-sm truncate">{{ member.nama }}</p>
-    <p class="text-gray-400 text-xs" *ngIf="member.jabatan !== 'Anggota'">{{ member.jabatan }}</p>
+    <p class="text-zinc-400 text-xs" *ngIf="member.jabatan !== 'Anggota'">{{ member.jabatan }}</p>
   </div>
 
   <!-- Position Badge -->
@@ -165,21 +165,21 @@
 
     <!-- Stats -->
     <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-      <div class="bg-gray-700 rounded-lg p-4">
+      <div class="bg-zinc-600 rounded-lg p-4">
         <div class="text-2xl font-bold text-white">{{ members.length }}</div>
-        <div class="text-gray-400 text-sm">Total Anggota</div>
+        <div class="text-zinc-400 text-sm">Total Anggota</div>
       </div>
-      <div class="bg-gray-700 rounded-lg p-4">
+      <div class="bg-zinc-600 rounded-lg p-4">
         <div class="text-2xl font-bold text-white">{{ getDivisiKeys().length }}</div>
-        <div class="text-gray-400 text-sm">Total Divisi</div>
+        <div class="text-zinc-400 text-sm">Total Divisi</div>
       </div>
-      <div class="bg-gray-700 rounded-lg p-4">
+      <div class="bg-zinc-700 rounded-lg p-4">
         <div class="text-2xl font-bold text-white">{{ getKetuaCount() }}</div>
-        <div class="text-gray-400 text-sm">Ketua Divisi</div>
+        <div class="text-zinc-400 text-sm">Ketua Divisi</div>
       </div>
-      <div class="bg-gray-700 rounded-lg p-4">
+      <div class="bg-zinc-700 rounded-lg p-4">
         <div class="text-2xl font-bold text-white">{{ getAnggotaCount() }}</div>
-        <div class="text-gray-400 text-sm">Anggota</div>
+        <div class="text-zinc-400 text-sm">Anggota</div>
       </div>
     </div>
   </div>
@@ -188,20 +188,20 @@
   <div *ngIf="showModal" 
        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
        (click)="closeModal()">
-    <div class="bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-100"
+    <div class="bg-zinc-800 rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-100"
          (click)="$event.stopPropagation()">
       
       <!-- Modal Header -->
       <div class="relative bg-gradient-to-r from-blue-600 to-purple-600 rounded-t-2xl text-center">
         <button (click)="closeModal()" 
-                class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors">
+                class="absolute top-4 right-4 text-white hover:text-zinc-300 transition-colors">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
         
         <!-- Profile Picture -->
-        <div class="w-full aspect-square mx-auto mb-2 relative bg-gray-600 overflow-hidden shadow-xl">
+        <div class="w-full aspect-square mx-auto mb-2 relative bg-zinc-600 overflow-hidden shadow-xl">
           <img
             [src]="selectedMember?.foto"
             alt="{{ selectedMember?.nama }}"
@@ -212,7 +212,7 @@
         
           <svg
             *ngIf="!selectedMember?.foto"
-            class="w-16 h-16 text-gray-400 absolute inset-0 m-auto"
+            class="w-16 h-16 text-zinc-400 absolute inset-0 m-auto"
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -239,7 +239,7 @@
         
         <!-- Member Details -->
         <div class="space-y-4">
-          <div class="bg-gray-700 rounded-lg p-4">
+          <div class="bg-zinc-700 rounded-lg p-4">
             <div class="flex items-center space-x-3">
               <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -247,13 +247,13 @@
                 </svg>
               </div>
               <div>
-                <p class="text-gray-400 text-xs uppercase tracking-wide">Sebagai</p>
+                <p class="text-zinc-400 text-xs uppercase tracking-wide">Sebagai</p>
                 <p class="text-white font-medium"> {{ selectedMember?.jabatan }} {{ selectedMember?.divisi }}</p>
               </div>
             </div>
           </div>
           
-          <div class="bg-gray-700 rounded-lg p-4">
+          <div class="bg-zinc-700 rounded-lg p-4">
             <div class="flex items-center space-x-3">
               <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -261,7 +261,7 @@
                 </svg>
               </div>
               <div>
-                <p class="text-gray-400 text-xs uppercase tracking-wide">Nomor Anggota</p>
+                <p class="text-zinc-400 text-xs uppercase tracking-wide">Nomor Anggota</p>
                 <p class="text-white font-medium">#{{ selectedMember?.nomor }}</p>
               </div>
             </div>
@@ -271,7 +271,7 @@
         <!-- Action Buttons -->
         <div class="flex space-x-3 pt-4">
           <button (click)="closeModal()" 
-                  class="flex-1 bg-gray-600 hover:bg-gray-500 text-white py-3 px-4 rounded-lg transition-colors font-medium">
+                  class="flex-1 bg-zinc-600 hover:bg-zinc-500 text-white py-3 px-4 rounded-lg transition-colors font-medium">
             Tutup
           </button>
           <button class="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 px-4 rounded-lg transition-all font-medium transform hover:scale-105">
