@@ -27,8 +27,8 @@ export class AppHome {
       route: '/struktur-pemuda'
     },
     {
-      title: 'Agenda Acara',
-      description: 'Susunan acara yang akan dilaksanakan oleh Muda Mudi Tangsi',
+      title: 'Jejak Cerita',
+      description: 'Merangkai kisah dan kenangan kampung Tangsi untuk dikenang dan diteruskan.',
       icon: 'https://res.cloudinary.com/dqbpmesug/image/upload/v1751039220/panah_qeqhj4.png',
       route: '/agenda-acara'
     },
