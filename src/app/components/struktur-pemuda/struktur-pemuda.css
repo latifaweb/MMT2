@@ -4,6 +4,11 @@
   background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
 }
 
+.home-container {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+
+}
+
 /* Smooth transitions for cards */
 .card-hover {
   transition: all 0.3s ease;
