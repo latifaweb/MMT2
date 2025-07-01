@@ -1,0 +1,43 @@
+<div class="home-container">
+    <header class="header">
+      <h1 class="main-title">MUDA MUDI TANGSI 18</h1>
+      <p class="subtitle">WEB RESMI MUDA MUDI TANGSI 18</p>
+    </header>
+
+    <main class="main-content">
+        <div class="menu-container">
+          <div 
+            class="menu-item" 
+            *ngFor="let item of menuItems; trackBy: trackByTitle"
+            (click)="onMenuClick(item)"
+            [attr.data-title]="item.title"
+            [routerLink]="item.route"
+          >
+            <div class="menu-icon">
+              <img [src]="item.icon" [alt]="item.title + ' icon'" />
+            </div>
+            <div class="menu-content">
+              <h2 class="menu-title">{{ item.title }}</h2>
+              <p class="menu-description">{{ item.description }}</p>
+            </div>
+          </div>
+        </div>
+      </main>
+      
+
+    <footer class="footer">
+      <div class="social-icons">
+        <a href="#" class="social-link" title="Facebook">
+          <div class="social-icon">f</div>
+        </a>
+        <a href="#" class="social-link" title="Twitter">
+          <div class="social-icon">t</div>
+        </a>
+        <a href="#" class="social-link" title="Instagram">
+          <div class="social-icon">ig</div>
+        </a>
+      </div>
+      <p class="footer-text">mudamudi_tangsi18</p>
+    </footer>
+  </div>
+  <router-outlet></router-outlet>
