@@ -39,40 +39,38 @@ export class StrukturPemuda implements OnInit {
   ngOnInit() {
     this.loadOrganisasiData();
     document.addEventListener('contextmenu', event => event.preventDefault());
-    document.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
   }
 
-  loadOrganisasiData() {
+  async loadOrganisasiData() {
     this.loading = true;
-    this.http.get<OrganisasiMember[]>(this.apiUrl).subscribe({
-      next: async (data) => {
-        // Ambil setiap gambar dan konversi ke blob
-        const membersWithBlob = await Promise.all(
-          data.map(async (member) => {
-            try {
-              const blob = await this.http
-                .get(member.foto, { responseType: 'blob' })
-                .toPromise();
-              const blobUrl = blob ? URL.createObjectURL(blob) : '';
-              return { ...member, blobFotoUrl: blobUrl };
-            } catch (error) {
-              console.error(`Gagal memuat gambar ${member.nama}`, error);
-              return { ...member, blobFotoUrl: '' };
-            }
-          })
-        );
+    try {
+      const data = await this.http.get<OrganisasiMember[]>(this.apiUrl).toPromise();
   
-        this.members = membersWithBlob;
-        this.groupMembers();
-        this.loading = false;
-      },
-      error: (err) => {
-        this.error = 'Gagal memuat data organisasi';
-        this.loading = false;
-        console.error('Error loading data:', err);
-      }
-    });
+      const membersWithBlob = await Promise.all(
+        (data || []).map(async (member) => {
+          try {
+            const blob = await this.http
+              .get(member.foto, { responseType: 'blob' })
+              .toPromise()
+            const blobUrl = blob ? URL.createObjectURL(blob) : '';
+            return { ...member, blobFotoUrl: blobUrl };
+          } catch (error) {
+            console.warn(`Gagal ambil gambar untuk ${member.nama}`);
+            return { ...member, blobFotoUrl: '' };
+          }
+        })
+      );
+  
+      this.members = membersWithBlob;
+      this.groupMembers();
+      this.loading = false;
+    } catch (err) {
+      console.error('Gagal memuat data:', err);
+      this.error = 'Gagal memuat data organisasi';
+      this.loading = false;
+    }
   }
+  
   
 
   groupMembers() {
