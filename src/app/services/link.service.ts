@@ -19,37 +19,23 @@ export class LinkService {
       id: 1,
       title: 'Instagram',
       url: 'https://www.instagram.com/mudamuditangsi/',
-      icon: '📷',
+      icon: 'https://res.cloudinary.com/dqbpmesug/image/upload/v1751707340/instagram_edxz9f.png',
       isActive: true
     },
     {
       id: 2,
       title: 'TikTok',
       url: 'https://www.tiktok.com/@mudamuditangsi',
-      icon: '🎵',
+      icon: 'https://res.cloudinary.com/dqbpmesug/image/upload/v1751707340/tiktok_jqmplw.png',
       isActive: true
     },
     {
       id: 3,
-      title: 'GitHub',
+      title: 'Youtube',
       url: 'https://github.com',
-      icon: '💻',
+      icon: 'https://res.cloudinary.com/dqbpmesug/image/upload/v1751707340/youtube_mmcvk2.png',
       isActive: true
     },
-    {
-      id: 4,
-      title: 'LinkedIn',
-      url: 'https://linkedin.com',
-      icon: '💼',
-      isActive: true
-    },
-    {
-      id: 5,
-      title: 'Website',
-      url: 'https://example.com',
-      icon: '🌐',
-      isActive: true
-    }
   ]);
 
   get profile$(): Observable<Profile> {
