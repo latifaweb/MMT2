@@ -139,16 +139,35 @@ export class StrukturPemuda implements OnInit {
     }
   }
 
+  getUniqueAnggotaCount(): number {
+    const uniqueNames = new Set(this.members.map(member => member.nama));
+    return uniqueNames.size;
+  }
+
+  // NEW: Method untuk mendapatkan jumlah total posisi/jabatan (termasuk duplikasi)
+  getTotalPosisiCount(): number {
+    return this.members.length;
+  }
+
+  // UPDATED: Method untuk mendapatkan jumlah ketua unik
   getKetuaCount(): number {
-    return this.members.filter(member => member.jabatan === 'Ketua').length;
+    const ketuaMembers = this.members.filter(member => member.jabatan === 'Ketua');
+    const uniqueKetua = new Set(ketuaMembers.map(member => member.nama));
+    return uniqueKetua.size;
   }
 
+  // UPDATED: Method untuk mendapatkan jumlah anggota unik (bukan ketua/wakil ketua)
   getAnggotaCount(): number {
-    return this.members.filter(member => member.jabatan === 'Anggota').length;
+    const anggotaMembers = this.members.filter(member => member.jabatan === 'Anggota');
+    const uniqueAnggota = new Set(anggotaMembers.map(member => member.nama));
+    return uniqueAnggota.size;
   }
 
+  // UPDATED: Method untuk mendapatkan jumlah wakil ketua unik
   getWakilKetuaCount(): number {
-    return this.members.filter(member => member.jabatan === 'Wakil Ketua').length;
+    const wakilMembers = this.members.filter(member => member.jabatan === 'Wakil Ketua');
+    const uniqueWakil = new Set(wakilMembers.map(member => member.nama));
+    return uniqueWakil.size;
   }
 
   // Modal methods
