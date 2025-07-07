@@ -41,17 +41,24 @@ export class StrukturPemuda implements OnInit {
     document.addEventListener('contextmenu', event => event.preventDefault());
   }
 
+  private transformCloudinaryUrl(url: string): string {
+    if (!url || !url.includes('/upload/')) return url;
+    const parts = url.split('/upload/');
+    return `${parts[0]}/upload/c_scale,h_0.1/${parts[1]}`;
+  }
+
   async loadOrganisasiData() {
     this.loading = true;
     try {
       const data = await this.http.get<OrganisasiMember[]>(this.apiUrl).toPromise();
-  
+
       const membersWithBlob = await Promise.all(
         (data || []).map(async (member) => {
           try {
+            const transformedUrl = this.transformCloudinaryUrl(member.foto);
             const blob = await this.http
-              .get(member.foto, { responseType: 'blob' })
-              .toPromise()
+              .get(transformedUrl, { responseType: 'blob' })
+              .toPromise();
             const blobUrl = blob ? URL.createObjectURL(blob) : '';
             return { ...member, blobFotoUrl: blobUrl };
           } catch (error) {
@@ -60,7 +67,7 @@ export class StrukturPemuda implements OnInit {
           }
         })
       );
-  
+
       this.members = membersWithBlob;
       this.groupMembers();
       this.loading = false;
@@ -70,8 +77,6 @@ export class StrukturPemuda implements OnInit {
       this.loading = false;
     }
   }
-  
-  
 
   groupMembers() {
     // Reset grouped members
