@@ -32,7 +32,7 @@ export class LinkService {
     {
       id: 3,
       title: 'Youtube',
-      url: 'https://www.youtube.com/',
+      url: 'https://www.youtube.com/@mudamuditangsi',
       icon: 'https://res.cloudinary.com/dqbpmesug/image/upload/v1751707340/youtube_mmcvk2.png',
       isActive: true
     },

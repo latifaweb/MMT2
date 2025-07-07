@@ -20,7 +20,7 @@ export class AgendaAcara implements OnInit {
   stories: Story[] = [];
   loading = true;
   error: string | null = null;
-  expandedStories: boolean[] = [];
+  selectedStory: number | null = null; // For modal
   
   private apiUrl = 'https://script.google.com/macros/s/AKfycbyvEg0vJv9L7jfrcy1DVJrSNBPxgMrnDXDiilJ1VouqAc2IxTWtdhTH3waLQoPxWr8_/exec';
 
@@ -37,7 +37,6 @@ export class AgendaAcara implements OnInit {
     this.http.get<Story[]>(this.apiUrl).subscribe({
       next: (data) => {
         this.stories = data;
-        this.expandedStories = new Array(data.length).fill(false);
         this.loading = false;
       },
       error: (err) => {
@@ -48,8 +47,17 @@ export class AgendaAcara implements OnInit {
     });
   }
 
-  toggleExpanded(index: number) {
-    this.expandedStories[index] = !this.expandedStories[index];
+  // Modal methods
+  openModal(index: number) {
+    this.selectedStory = index;
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeModal() {
+    this.selectedStory = null;
+    // Restore body scroll
+    document.body.style.overflow = 'auto';
   }
 
   onImageError(event: any) {
