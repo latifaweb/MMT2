@@ -63,11 +63,11 @@
   
   /* Gradient border effect */
   .border-gradient-to-r {
-    border-image: linear-gradient(to right, #60a5fa, #a855f7) 1;
+    border-image: linear-gradient(to right, #2d2d2d, #2d2d2d) 1;
   }
   
   /* Custom home container background */
   .home-container {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);;
     min-height: 100vh;
   }

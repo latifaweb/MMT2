@@ -30,7 +30,7 @@ export class AppHome {
       title: 'Jejak Cerita',
       description: 'Merangkai kisah dan kenangan kampung Tangsi untuk dikenang dan diteruskan.',
       icon: 'https://res.cloudinary.com/dqbpmesug/image/upload/v1751039220/panah_qeqhj4.png',
-      route: '/agenda-acara'
+      route: '/jejak-cerita'
     },
     {
       title: 'Sosial Media',

@@ -10,7 +10,7 @@ export const routes: Routes = [
     { path: '', component: AppHome, title: 'MUDA MUDI TANGSI 18', pathMatch: 'full' },
       { path: 'struktur-pemuda', title: 'MUDA MUDI TANGSI 18', component: StrukturPemuda, },      
       { path: 'sosial-media', title: 'MUDA MUDI TANGSI 18', component: LinktreeComponent, }, 
-      { path: 'agenda-acara', title: 'MUDA MUDI TANGSI 18', component: AgendaAcara, },
+      { path: 'jejak-cerita', title: 'MUDA MUDI TANGSI 18', component: AgendaAcara, },
       { path: 'kerja-sama', title: 'MUDA MUDI TANGSI 18', component: KerjaSama, },// Redirect empty path to 404
       { path: '**', component: AppHome }
 ];
